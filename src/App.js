@@ -9,6 +9,9 @@ import Login from './component/Login/Login';
 import Private from './component/Private/Private'
 import PrivateRoute from './component/PrivareRoute/PrivateRoute';
 import Register from './component/Register/Register';
+import Dashboard from './component/Dashboard/Dashboard/Dashboard';
+import Explore from './component/Explore/Explore';
+import PlaceOrder from './component/Explore/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -23,8 +26,14 @@ function App() {
             <Route  path="/home">
               <Home></Home>
             </Route>
-            <PrivateRoute path="/appointment">
-              <Private></Private>
+            <Route path="/explore">
+              <Explore loc='explore'></Explore>
+            </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path="/perfume/:pId">
+              <PlaceOrder></PlaceOrder>
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>

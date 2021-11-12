@@ -1,94 +1,83 @@
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useState } from "react";
-import initializeAuthentication from '../../firebase/firebase.init';
-import useAuth from "../../hooks/useAuth";
+import { Container, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
+import React, { useState } from 'react';
+import { Grid } from '@mui/material';
+import { NavLink, useHistory } from 'react-router-dom';
+import useAuth from './../../hooks/useAuth';
 
-initializeAuthentication();
 const Register = () => {
-
-    const { registerNewUser, setUserName, logOut } = useAuth();
-    const { signInWithGoogle } = useAuth();
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-
+    const [loginData, setLoginData] = useState({});
     const history = useHistory();
+    const { user, registerUser, isLoading, authError } = useAuth();
 
-
-    const handleNameChange = e => {
-        setName(e.target.value);
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
     }
-    const handleEmailChange = e => {
-        setEmail(e.target.value);
-    }
-
-    const handlePasswordChange = e => {
-        setPassword(e.target.value)
-    }
-    const handleGoogleLogin = () => {
-        signInWithGoogle()
-            .then(result => {
-                history.push('/home');
-            })
-    }
-    const handleRegistration = e => {
+    const handleLoginSubmit = e => {
+        if (loginData.password !== loginData.password2) {
+            alert('Your password did not match');
+            return
+        }
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
-        console.log(email, password);
-        if (password.length < 6) {
-            setError('Password Must be at least 6 characters long.')
-            return;
-        }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password Must contain 2 upper case');
-            return;
-        }
-        else {
-            registerNewUser(name, email, password)
-                .then(result => {
-                    history.push('/login');
-                    setUserName(name);
-                    logOut();
-
-                })
-        }
-
     }
-
     return (
-        <div className="mx-5 my-5 reg-box">
-            <form onSubmit={handleRegistration}>
-                <h3 className="text-primary">Please Register</h3>
-                <div className="row mb-3">
-                    <label htmlFor="inputName" className="col-sm-2 col-form-label">Name</label>
-                    <div className="col-sm-10">
-                        <input type="text" onBlur={handleNameChange} className="form-control" id="inputName" placeholder="Your Name" />
-                    </div>
-                </div>
-                <div className="row mb-3">
-                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
-                    <div className="col-sm-10">
-                        <input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" required />
-                    </div>
-                </div>
-                <div className="row mb-3">
-                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
-                    <div className="col-sm-10">
-                        <input type="password" onBlur={handlePasswordChange} className="form-control" id="inputPassword3" required />
-                    </div>
-                </div>
-                <div className="row mb-3 text-danger">{error}</div>
-                <button type="submit" className="btn btn-primary">Register</button>
+        <Container>
+            <Grid container spacing={2}>
+                <Grid item sx={{ mt: 8 }} xs={12} md={6}>
+                    <Typography variant="body1" gutterBottom>Register</Typography>
+                    {!isLoading && <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="Your Name"
+                            name="name"
+                            onBlur={handleOnBlur}
+                            variant="standard" />
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="Your Email"
+                            name="email"
+                            type="email"
+                            onBlur={handleOnBlur}
+                            variant="standard" />
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="Your Password"
+                            type="password"
+                            name="password"
+                            onBlur={handleOnBlur}
+                            variant="standard" />
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="ReType Your Password"
+                            type="password"
+                            name="password2"
+                            onBlur={handleOnBlur}
+                            variant="standard" />
 
-
-            </form>
-            <br /><br /><br />
-            <p>Aready Registered? <Link to="/login">Sign In</Link></p>
-            <div>--------------------------------</div>
-            <br /><br /><br />
-            <button onClick={handleGoogleLogin}>Google Sign In</button>
-        </div>
+                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
+                        <NavLink
+                            style={{ textDecoration: 'none' }}
+                            to="/login">
+                            <Button variant="text">Already Registered? Please Login</Button>
+                        </NavLink>
+                    </form>}
+                    {isLoading && <CircularProgress />}
+                    {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+                    {authError && <Alert severity="error">{authError}</Alert>}
+                </Grid>
+                <Grid item xs={12} md={6}>
+                   <h3>Some Image</h3>
+                </Grid>
+            </Grid>
+        </Container>
     );
 };
 

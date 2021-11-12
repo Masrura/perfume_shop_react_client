@@ -1,0 +1,7 @@
+.menu-box{
+    display: flex;
+    flex-direction: column;
+}
+.menu-box :link{
+   text-decoration: none;
+}

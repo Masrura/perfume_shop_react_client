@@ -1,0 +1,24 @@
+.detail_form_review{
+    padding: 5% 5%;
+    box-shadow: white 0px 0px 0px 2px, white 0px 4px 6px -1px, white 0px 1px 0px inset;
+}
+.detail_form_review form{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail_form_review form input{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    border: 1px solid white;
+}
+.detail_form_review textarea{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+    border: 1px solid white;
+}

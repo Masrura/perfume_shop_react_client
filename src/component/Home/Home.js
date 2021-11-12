@@ -1,9 +1,12 @@
 import React from 'react';
+import Explore from '../Explore/Explore';
+import SeeReviews from '../SeeReviews/SeeReviews';
 
 const Home = () => {
     return (
         <div>
-          <h2>This is home</h2>  
+            <Explore loc='home'></Explore>
+         <SeeReviews></SeeReviews>   
         </div>
     );
 };
