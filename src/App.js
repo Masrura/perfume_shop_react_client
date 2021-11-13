@@ -12,6 +12,7 @@ import Register from './component/Register/Register';
 import Dashboard from './component/Dashboard/Dashboard/Dashboard';
 import Explore from './component/Explore/Explore';
 import PlaceOrder from './component/Explore/PlaceOrder/PlaceOrder';
+import Footer from './component/Footer/Footer';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
               <NotFound></NotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>

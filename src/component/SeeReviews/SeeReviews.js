@@ -10,13 +10,14 @@ const SeeReviews = () => {
             .then(data => setReviews(data))
     }, [])
     return (
-        <div>
-            <Divider/>
+        <div style={{marginLeft:'5%'}}>
+            <Divider />
+            <Typography variant='h3' sx={{ width: '100%', marginTop: '2%' }}> Review </Typography>
             <Box sx={{ width: '100%', marginTop:'5%' }}>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     {
                         reviews.map(review =>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={3} md={3} style={{margin:'2%', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>
                                 <Typography mb={3} variant='h5'>Name: {review?.name}</Typography>
                                 <Typography mb={3} variant='h6'>Email: {review?.email}</Typography>
                                 <Typography mb={3} variant='h5'>Review: {review?.review}</Typography>
