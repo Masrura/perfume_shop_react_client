@@ -121,7 +121,8 @@ const Header = () => {
                             <MenuIcon />
                         </IconButton>
 
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <Typography style={{textAlign:'left', color: 'white',
+  letterSpacing: '5px'}} variant="h4" component="div" sx={{ flexGrow: 1 }}>
                             Fragrance For You
                         </Typography>
                         <Box className={navContainer}>

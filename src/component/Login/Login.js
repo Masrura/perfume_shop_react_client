@@ -62,7 +62,7 @@ const Login = () => {
                     <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <h3>Some Image</h3>
+                    <img style={{ width: '100%' }} src='./login.jpg' alt="" />
                 </Grid>
             </Grid>
         </Container>

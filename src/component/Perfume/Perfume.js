@@ -26,7 +26,7 @@ const Perfume = (props) => {
                         </Button>
                         :
                         <Link to={`/perfume/${_id}`}>
-                            <Button color="secondary">Buy Now</Button>
+                            <Button variant='contained' color="secondary">Buy Now</Button>
                         </Link>
                 }
                 

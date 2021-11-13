@@ -10,7 +10,6 @@ const PrivateRoute = (props) => {
     if (isLoading) {
         return <Spinner animation="border" variant="danger" />
     }
-    setTimeout(() => console.log('hagu'), 6000)
     return (
         <Route
             {...rest}

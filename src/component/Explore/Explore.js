@@ -34,8 +34,8 @@ const Explore = (props) => {
         }
     };
     return (
-        <Container>
-            <Grid container spacing={3}>
+        <Container style={{ backgroundImage: 'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)', padding:'1%'}}>
+            <Grid container spacing={3} rowSpacing={5}>
                 {
                     loc === 'explore' || loc === 'manage' ?
                         perfumes.length === 0 ?

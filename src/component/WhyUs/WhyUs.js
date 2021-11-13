@@ -1,13 +1,13 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
+import { Grid, Container} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 
 const WhyUs = () => {
     return (
-        <Box style={{marginTop:'3%'}}>
+        <Container style={{ marginTop: '3%', marginBottom: '3%'}}>
             <Typography variant='h4'> Why Us?</Typography>
             <Box sx={{ width: '100%' }}>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -26,7 +26,7 @@ const WhyUs = () => {
 
                 </Grid>
             </Box>
-        </Box>
+        </Container>
     );
 };
 
