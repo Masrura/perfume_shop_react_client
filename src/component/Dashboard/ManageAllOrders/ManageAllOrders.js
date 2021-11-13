@@ -73,7 +73,7 @@ const ManageAllOrders = () => {
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         {
                             orders.map(order =>
-                                <Grid item xs={4}>
+                                <Grid item xs={12} sm={4} md={4}>
                                     <img style={{ height: '300px', width: '300px' }} src={order?.product?.img} alt="" />
                                     <Typography mb={3} variant='h5'>Name: {order?.product?.name}</Typography>
                                     <Typography mb={3} variant='h6'>Price: {order?.product?.price}</Typography>
