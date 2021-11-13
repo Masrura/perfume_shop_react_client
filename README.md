@@ -1,6 +1,6 @@
-Name of The Project: GreenLand Resort
+Name of The Project: Fragrance For you
 
-The site link is : https://assignment-11-auth.web.app/
+The site link is : https://niche-website-auth.web.app/
 
 A web application for perfume which include authentication and many other features.
 
