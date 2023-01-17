@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        const url = 'https://young-river-47789.herokuapp.com/orders';
+        const url = 'https://perfume-shop-node-server.vercel.app/orders';
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -22,7 +22,7 @@ const ManageAllOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            fetch(`https://young-river-47789.herokuapp.com/deleteOrder/${id}`, {
+            fetch(`https://perfume-shop-node-server.vercel.app/deleteOrder/${id}`, {
                 method: "DELETE",
                 headers: { "content-type": "application/json" },
             })
@@ -40,7 +40,7 @@ const ManageAllOrders = () => {
     const handleUpdate = (id) => {
         const proceed = window.confirm('Are you sure, you want to Aprove?');
         if (proceed) {
-            fetch(`https://young-river-47789.herokuapp.com/updateOrder/${id}`, {
+            fetch(`https://perfume-shop-node-server.vercel.app/updateOrder/${id}`, {
                 method: "PUT",
                 headers: { "content-type": "application/json" },
             })

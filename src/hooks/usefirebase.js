@@ -79,7 +79,7 @@ const useFirebase = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://young-river-47789.herokuapp.com/users/${user.email}`)
+        fetch(`https://perfume-shop-node-server.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -95,7 +95,7 @@ const useFirebase = () => {
     }
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://young-river-47789.herokuapp.com/users', {
+        fetch('https://perfume-shop-node-server.vercel.app/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

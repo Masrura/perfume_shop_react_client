@@ -15,7 +15,7 @@ const PlaceOrder = () => {
         data.status = 'pending';
         data.product = perfume;
         console.log(data);
-        fetch("https://young-river-47789.herokuapp.com/place-order", {
+        fetch("https://perfume-shop-node-server.vercel.app/place-order", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -30,7 +30,7 @@ const PlaceOrder = () => {
         reset();
     }
     useEffect(() => {
-        fetch(`https://young-river-47789.herokuapp.com/perfume/${pId}`)
+        fetch(`https://perfume-shop-node-server.vercel.app/perfume/${pId}`)
             .then(res => res.json())
             .then(data => setPerfume(data))
     }, [pId]);

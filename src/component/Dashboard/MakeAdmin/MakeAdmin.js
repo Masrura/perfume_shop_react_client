@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     }
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('https://young-river-47789.herokuapp.com/users/admin', {
+        fetch('https://perfume-shop-node-server.vercel.app/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

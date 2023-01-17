@@ -8,7 +8,7 @@ const Explore = (props) => {
     const [control, setConrol] = useState(false);
     const { loc } = props;
     useEffect(() => {
-        fetch('https://young-river-47789.herokuapp.com/perfumes')
+        fetch('https://perfume-shop-node-server.vercel.app/perfumes')
             .then(res => res.json())
             .then(data => setPerfumes(data))
     }, [control])
@@ -16,7 +16,7 @@ const Explore = (props) => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            fetch(`https://young-river-47789.herokuapp.com/deleteProduct/${id}`, {
+            fetch(`https://perfume-shop-node-server.vercel.app/${id}`, {
                 method: "DELETE",
                 headers: { "content-type": "application/json" },
             })

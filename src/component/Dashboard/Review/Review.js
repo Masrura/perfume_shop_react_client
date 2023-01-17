@@ -8,7 +8,7 @@ const Review = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch("https://young-river-47789.herokuapp.com/review", {
+        fetch("https://perfume-shop-node-server.vercel.app/review", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
