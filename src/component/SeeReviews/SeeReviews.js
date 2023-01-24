@@ -9,7 +9,7 @@ import { textAlign } from '@mui/system';
 const SeeReviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('https://perfume-shop-node-server.vercel.app/review')
+        fetch('https://niche-website-server-side-masrura-masrura.vercel.app/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

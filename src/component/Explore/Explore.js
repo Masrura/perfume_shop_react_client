@@ -8,7 +8,7 @@ const Explore = (props) => {
     const [control, setConrol] = useState(false);
     const { loc } = props;
     useEffect(() => {
-        fetch('https://perfume-shop-node-server.vercel.app/perfumes')
+        fetch('https://niche-website-server-side-masrura-masrura.vercel.app/perfumes')
             .then(res => res.json())
             .then(data => setPerfumes(data))
     }, [control])
@@ -16,7 +16,7 @@ const Explore = (props) => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            fetch(`https://perfume-shop-node-server.vercel.app/${id}`, {
+            fetch(`https://niche-website-server-side-masrura-masrura.vercel.app/${id}`, {
                 method: "DELETE",
                 headers: { "content-type": "application/json" },
             })

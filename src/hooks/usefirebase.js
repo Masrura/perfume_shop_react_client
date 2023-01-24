@@ -79,7 +79,7 @@ const useFirebase = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://perfume-shop-node-server.vercel.app/users/${user.email}`)
+        fetch(`https://niche-website-server-side-masrura-masrura.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -95,7 +95,7 @@ const useFirebase = () => {
     }
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://perfume-shop-node-server.vercel.app/users', {
+        fetch('https://niche-website-server-side-masrura-masrura.vercel.app/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

@@ -15,7 +15,7 @@ const PlaceOrder = () => {
         data.status = 'pending';
         data.product = perfume;
         console.log(data);
-        fetch("https://perfume-shop-node-server.vercel.app/place-order", {
+        fetch("https://niche-website-server-side-masrura-masrura.vercel.app/place-order", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -30,7 +30,7 @@ const PlaceOrder = () => {
         reset();
     }
     useEffect(() => {
-        fetch(`https://perfume-shop-node-server.vercel.app/perfume/${pId}`)
+        fetch(`https://niche-website-server-side-masrura-masrura.vercel.app/perfume/${pId}`)
             .then(res => res.json())
             .then(data => setPerfume(data))
     }, [pId]);

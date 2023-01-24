@@ -14,7 +14,7 @@ const MyOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        const url = `https://perfume-shop-node-server.vercel.app/orders/${user.email}`;
+        const url = `https://niche-website-server-side-masrura-masrura.vercel.app/orders/${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -23,7 +23,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            fetch(`https://perfume-shop-node-server.vercel.app/deleteOrder/${id}`, {
+            fetch(`https://niche-website-server-side-masrura-masrura.vercel.app/deleteOrder/${id}`, {
                 method: "DELETE",
                 headers: { "content-type": "application/json" },
             })

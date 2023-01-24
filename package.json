@@ -44,5 +44,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "content_security_policy": "default-src 'self' style-src 'self' 'unsafe-inline';"
 }

@@ -5,7 +5,7 @@ const AddProduct = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch("https://perfume-shop-node-server.vercel.app/perfume", {
+        fetch("https://niche-website-server-side-masrura-masrura.vercel.app/perfume", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
