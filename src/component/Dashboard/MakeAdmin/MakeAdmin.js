@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     }
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('https://niche-website-server-side-masrura-masrura.vercel.app/users/admin', {
+        fetch('https://perfume-shop-node-server.onrender.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

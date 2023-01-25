@@ -8,7 +8,7 @@ const Review = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch("https://niche-website-server-side-masrura-masrura.vercel.app/review", {
+        fetch("https://perfume-shop-node-server.onrender.com/review", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
